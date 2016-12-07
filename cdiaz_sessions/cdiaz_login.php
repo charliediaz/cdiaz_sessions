@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Exercise Sessions</title>
+    <title>cdiaz Sessions</title>
     <!-- Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="Scripts/jquery-2.1.4.min.js"</script>
