@@ -34,6 +34,7 @@
       <!-- navbar-user-login -->
    	  <ul class="nav navbar-nav navbar-right">
 		<li><a href="cdiaz_login.php">Login</a></li>
+    <li><a href="logout.php">Logout</a></li>
 	  </ul>
 
     </div><!-- /.navbar-collapse -->

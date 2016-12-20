@@ -1,3 +1,41 @@
+<?php 
+    
+          session_start();
+      
+         $mysqli =  mysql_connect('localhost', 'root', '', 'usuarios');
+          if (!$mysqli) {
+              die('No pudo conectarse: ' . mysql_error());
+          }
+          echo 'Conectado satisfactoriamente';
+
+           
+          
+          $name = ( array_key_exists( 'name', $_REQUEST) ? $_REQUEST['name'] : "" );
+          $pwd = ( array_key_exists( 'pwd', $_REQUEST) ? $_REQUEST['pwd'] : "" );
+
+          //debug
+
+          echo '<br>';
+
+          echo $name;
+
+          echo '<br>';
+
+          echo $pwd;
+
+          $result = mysql_query("SELECT * FROM users WHERE username = '".$name.""AND "password = '".$pwd."");
+
+          if (isset($_POST["name"])){
+            if ($_POST["name"] == $name && $_POST["pwd"] == $pwd){
+                header("Location: Wellcome.php");
+                die('redirected');
+          }else{
+                header("Location: cdiaz_login.php");
+                die('redirected_1');
+          }
+        }
+         
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -47,38 +85,6 @@
 			</div>
 
       </form>
-	  
-	  <?php 
-	  
-		      session_start();
-      
-          $mysqli = mysqli_connect("localhost", "root", "", "usuarios");
-          if(!$mysqli || $mysqli->connect_errno){
-            die("<h2>Error connecting to database</h2>");
-          }
-
-          
-          $name = ( array_key_exists( 'name', $_REQUEST) ? $_REQUEST['name'] : "" );
-          $pwd = ( array_key_exists( 'pwd', $_REQUEST) ? $_REQUEST['pwd'] : "" );
-          $query = "SELECT COUNT(*) AS pass FROM users WHERE name='$name' AND password='$pwd';";
-
-          $result = $mysqli->query($query);
-          
-    
-        if(isset($_POST["user"])&&isset($_POST["pwd"])){
-            /*
-            $usuario = $_POST["user"];   
-            $password = $_POST["pwd"];
-            */
-            if ($_POST["user"] == $name && $_POST["pwd"] == $pwd){
-                header("Location: Wellcome.php");
-                die('redirected');
-            }else{
-                header("Location: cdiaz_login.php");
-                die('redirected_1');
-            }
-         }
-      ?>
 	  
     </div>
 
